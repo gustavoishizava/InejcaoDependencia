@@ -1,5 +1,6 @@
 using InjecaoDependencia.Application;
 using InjecaoDependencia.Service;
+using InjecaoDependencia.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddTransient<ITransientService, Service>();
 
 builder.Services.AddTransient<IApplicationOne, Application>();
 builder.Services.AddTransient<IApplicationTwo, Application>();
+
+builder.Services.AddHostedService<Worker>();
 
 var app = builder.Build();
 
